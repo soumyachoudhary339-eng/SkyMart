@@ -1,18 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { Outlet, useNavigate } from "react-router-dom";
+import { AuthContext } from "../Context/Contextapi";
 
 const Shop = () => {
-  const [products, setProducts] = useState([]);
+ let {products,setProducts} =useContext(AuthContext)
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get("https://dummyjson.com/products");
-        console.log(res.data); // 
-        setProducts(res.data.products); 
+        const res = await axios.get("https://fakestoreapi.com/products");
+        console.log(res.data); 
+        setProducts(res.data); 
       } catch (err) {
         console.log(err);
       } finally {
@@ -32,7 +33,7 @@ const Shop = () => {
         <h1 className="text-white text-2xl">All Products</h1>
 
         <button
-          onClick={() => navigate("/")}
+          onClick={() =>{ navigate("/")}}
           className="text-white border rounded-2xl px-4 py-2 bg-green-600 hover:bg-green-700 transition"
         >
           Back to Home
@@ -45,13 +46,14 @@ const Shop = () => {
      <Outlet/>
         {products?.map((item) => (
           <div
+          onClick={()=>{navigate(`/productdetail/${item.id}`)}}
             key={item.id}
             className="p-4 border rounded-xl shadow border-[#2f2f2f] hover:-translate-y-2 transition duration-300"
           >
             <img
-              src={item.thumbnail}
+              src={item.image}
               alt={item.title}
-              className="h-40 w-full object-cover rounded hover:scale-95 transition duration-300"
+              className="h-40 w-full object-contain rounded hover:scale-95 transition duration-300"
             />
 
             <h2 className="text-sm font-semibold mt-2 text-[#D1D1D1]">

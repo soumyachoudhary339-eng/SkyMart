@@ -9,6 +9,7 @@ const Nevbar = () => {
         logout();              
         navigate("/login");    
     };
+    
     return (
         <div>
             <div className='flex justify-between bg-gray-900 px-8 lg:px-39 py-2 border border-white'>

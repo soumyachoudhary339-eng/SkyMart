@@ -9,12 +9,13 @@ import Register from './Page/Register';
 import { useContext } from 'react';
 import { AuthContext } from './Context/Contextapi';
 import Nasted from './Page/Nasted';
+import ProductDetail from './Component/ProductDetail';
 
 const App = () => {
   const { user } = useContext(AuthContext);
 
   return (
-    <div className='bg-[#0d0d0d] min-h-screen'>
+    <div className='bg-[#0d0d0d] h-screen'>
 
       {user && <Nevbar />}
 
@@ -26,6 +27,7 @@ const App = () => {
         <Route path='/about' element={<About />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
+        <Route path='/productdetail/:id' element={<ProductDetail/>}/>
       </Routes>
 
       {user && <Footer />}

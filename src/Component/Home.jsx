@@ -12,7 +12,7 @@ const Home = () => {
   }, [user, navigate]);
 
     return (
-        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10  bg-black '>
+       <div className='bg-black'> <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10  '>
             <div className='flex  justify-between gap-6 border border-white  rounded-2xl p-6'>
                 <div className='flex flex-col gap-4'>
                     <h1 className='text-[#C8F400] text-sm'>
@@ -130,7 +130,7 @@ const Home = () => {
                     <p className='text-[#595959]'>Price-match guarantee</p>
                 </div>
             </div>
-        </div>
+        </div></div>
     )
 }
 
