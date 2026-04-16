@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
@@ -27,7 +27,7 @@ const Shop = () => {
 
   return (
     <div className="bg-[#0D0D0D]">
-      
+     
       <div className="flex justify-between items-center mx-auto max-w-7xl lg:px-20 mt-3">
         <h1 className="text-white text-2xl">All Products</h1>
 
@@ -39,8 +39,10 @@ const Shop = () => {
         </button>
       </div>
 
-    
+     
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-6">
+         <button className="text-white border rounded-2xl px-4 py-2  " onClick={()=>{navigate("nasted")}}> open page</button>
+     <Outlet/>
         {products?.map((item) => (
           <div
             key={item.id}
