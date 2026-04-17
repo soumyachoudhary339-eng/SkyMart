@@ -10,6 +10,7 @@ import { useContext } from 'react';
 import { AuthContext } from './Context/Contextapi';
 import Nasted from './Page/Nasted';
 import ProductDetail from './Component/ProductDetail';
+import CartDetailPage from './Component/CartDetailPage';
 
 const App = () => {
   const { user } = useContext(AuthContext);
@@ -28,6 +29,7 @@ const App = () => {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/productdetail/:id' element={<ProductDetail/>}/>
+        <Route path='/shop/cartdetail' element={<CartDetailPage/>}/>
       </Routes>
 
       {user && <Footer />}

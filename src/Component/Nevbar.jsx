@@ -9,7 +9,7 @@ const Nevbar = () => {
         logout();              
         navigate("/login");    
     };
-    
+
     return (
         <div>
             <div className='flex justify-between bg-gray-900 px-8 lg:px-39 py-2 border border-white'>
@@ -30,7 +30,7 @@ const Nevbar = () => {
                             ? user.full_name.slice(0, 15) + "...."
                             : user?.full_name}</span>
                     </div>
-                    <button className='text-white text-xl'>🛒</button>
+                    <button className='text-white text-xl' onClick={()=>{navigate('/shop/cartdetail')}}>🛒</button>
                     <button
                         onClick={(handleLogout)}
                         className='text-white text-sm border px-2 py-1 rounded'
